@@ -7,13 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AgendaDeTarefas.Controller
+namespace AgendaDeTarefas.Controladores
 {
     public class ControladorTarefa : Conexao
     {
         private readonly SqlAgenda sqlagenda;
+        private Conexao conexao;
         public ControladorTarefa()
         {
+            conexao = new Conexao();
             sqlagenda = new SqlAgenda();
         }
 
@@ -21,7 +23,7 @@ namespace AgendaDeTarefas.Controller
         {
 
             SqlCommand comandoInsercao = new SqlCommand();
-            comandoInsercao.Connection = CriarConexao();
+            comandoInsercao.Connection = conexao.CriarConexao();
             string recebeComandoInsercao = sqlagenda.SqlInsercaoTarefa();
 
             comandoInsercao.CommandText = recebeComandoInsercao;
@@ -42,7 +44,7 @@ namespace AgendaDeTarefas.Controller
         {
 
             SqlCommand comandoBusca = new SqlCommand();
-            comandoBusca.Connection = CriarConexao();
+            comandoBusca.Connection = conexao.CriarConexao();
             string recebeConsultaTarefasPendentes = sqlagenda.SqlTarefasPendentes();
 
             comandoBusca.CommandText = recebeConsultaTarefasPendentes;
@@ -59,7 +61,7 @@ namespace AgendaDeTarefas.Controller
         {
 
             SqlCommand comandoBusca = new SqlCommand();
-            comandoBusca.Connection = CriarConexao();
+            comandoBusca.Connection = conexao.CriarConexao();
             string recebeConsultaTarefasFinalizadass = sqlagenda.SqlTarefasFinalizadas();
 
             comandoBusca.CommandText = recebeConsultaTarefasFinalizadass;
@@ -76,7 +78,7 @@ namespace AgendaDeTarefas.Controller
         {
 
             SqlCommand comandoBusca = new SqlCommand();
-            comandoBusca.Connection = CriarConexao();
+            comandoBusca.Connection = conexao.CriarConexao();
             string recebeConsultaTodasAsTarefas = sqlagenda.SqlTodasAsTarefas();
 
             comandoBusca.CommandText = recebeConsultaTodasAsTarefas;
@@ -109,7 +111,7 @@ namespace AgendaDeTarefas.Controller
         {
 
             SqlCommand comandoEdicao = new SqlCommand();
-            comandoEdicao.Connection = CriarConexao();
+            comandoEdicao.Connection = conexao.CriarConexao();
             string recebeComandoEdicao = sqlagenda.SqlEdicaoTarefa();
 
             comandoEdicao.CommandText = recebeComandoEdicao;
@@ -127,7 +129,7 @@ namespace AgendaDeTarefas.Controller
         {
 
             SqlCommand comandoExclusao = new SqlCommand();
-            comandoExclusao.Connection = CriarConexao();
+            comandoExclusao.Connection = conexao.CriarConexao();
             string recebeComandoExclusao = sqlagenda.SqlExclusaoTarefa();
 
             comandoExclusao.CommandText = recebeComandoExclusao;

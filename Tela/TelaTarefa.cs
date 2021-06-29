@@ -1,4 +1,4 @@
-﻿using AgendaDeTarefas.Controller;
+﻿
 using AgendaDeTarefas.Model;
 using AgendaDeTarefas.Tela;
 using System;
@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AgendaDeTarefas.Controladores;
 
 namespace AgendaDeTarefas.Tela
 {

@@ -68,14 +68,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConexaoBanco\Conexao.cs" />
+    <Compile Include="ConexaoBanco\SqlCompromisso.cs" />
     <Compile Include="ConexaoBanco\SqlContato.cs" />
     <Compile Include="ConexaoBanco\SqlAgenda.cs" />
+    <Compile Include="Controladores\ControladorCompromisso.cs" />
     <Compile Include="Controladores\ControladorContato.cs" />
     <Compile Include="Controladores\ControladorTarefa.cs" />
+    <Compile Include="Model\Compromisso.cs" />
     <Compile Include="Model\Contato.cs" />
     <Compile Include="Model\Tarefa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tela\TelaCompromisso.cs" />
     <Compile Include="Tela\TelaContato.cs" />
     <Compile Include="Tela\TelaInicial.cs" />
     <Compile Include="Tela\TelaMenu.cs" />

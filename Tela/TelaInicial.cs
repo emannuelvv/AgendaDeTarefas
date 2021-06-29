@@ -35,9 +35,29 @@ namespace AgendaDeTarefas.Tela
             return mensagem;
         }
 
+        protected string FormataDataCompromisso(DateTime data)
+        {
+            string recebeData = data.ToString("dd/MM/yyyy");
+
+            return recebeData;
+        }
+
+        protected string MensagemAtencao(string mensagem)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            return mensagem;
+        }
+
         protected string FormataData(DateTime data)
         {
             string recebeData = data.ToString("dd/MM/yyyy");
+
+            return recebeData;
+        }
+
+        protected string FormataHora(DateTime horas)
+        {
+            string recebeData = horas.ToString("HH:mm");
 
             return recebeData;
         }

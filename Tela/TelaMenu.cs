@@ -1,4 +1,5 @@
-﻿using AgendaDeTarefas.Controller;
+﻿using AgendaDeTarefas.Controladores;
+
 using AgendaDeTarefas.Tela;
 using System;
 using System.Collections.Generic;
@@ -10,18 +11,23 @@ namespace AgendaDeTarefas.Tela
 {
     public class TelaMenu : TelaInicial
     {
-        private readonly ControladorContato ControladorContato;
-        private readonly ControladorTarefa ControladorTarefa;
+        private readonly ControladorContato controladorContato;
+        private readonly ControladorTarefa controladorTarefa;
+        private readonly ControladorCompromisso controladorCompromisso;
+
         private readonly TelaTarefa telaTarefa;
         private readonly TelaContato telaContato;
+        private readonly TelaCompromisso telaCompromisso;
 
         public TelaMenu()
         {
-            ControladorContato = new ControladorContato();
-            ControladorTarefa = new ControladorTarefa();
+            controladorContato = new ControladorContato();
+            controladorTarefa = new ControladorTarefa();
+            controladorCompromisso = new ControladorCompromisso();
 
-            telaTarefa = new TelaTarefa(ControladorTarefa);
-            telaContato = new TelaContato(ControladorContato);
+            telaTarefa = new TelaTarefa(controladorTarefa);
+            telaContato = new TelaContato(controladorContato);
+            telaCompromisso = new TelaCompromisso(controladorCompromisso, telaContato);
 
         }
         public void RetornaMenu()
@@ -34,6 +40,7 @@ namespace AgendaDeTarefas.Tela
                 Console.WriteLine();
                 Console.WriteLine("Digite 1 para o Cadastro de Tarefas");
                 Console.WriteLine("Digite 2 para o Cadastro de Contatos");
+                Console.WriteLine("Digite 3 para o Cadastro de Compromissos");
                 Console.WriteLine("Digite S para Sair");
                 Console.WriteLine();
                 Console.Write("Opção: ");
@@ -51,8 +58,12 @@ namespace AgendaDeTarefas.Tela
                 {
                     MenuContatos();
                 }
+                else if (opcao == "3")
+                {
+                    MenuCompromissos();
+                }
 
-            } while (OpcaoInvalida(opcao));
+            } while (OpcaoInvalidaMenu(opcao));
         }
 
         private void MenuTarefas()
@@ -87,6 +98,20 @@ namespace AgendaDeTarefas.Tela
             RetornaMenu();
 
         }
+        private bool OpcaoInvalida(string opcao)
+        {
+            if (opcao != "1" && opcao != "2" && opcao != "3" && opcao != "S" && opcao != "s")
+            {
+                Console.WriteLine(MensagemErro("Tecla inválida, tente novamente"));
+                Console.ReadLine();
+                LimparTela();
+                RetornaMenu();
+                return false;
+            }
+            else
+                return true;
+        }
+
 
         private void MenuContatos()
         {
@@ -122,7 +147,7 @@ namespace AgendaDeTarefas.Tela
 
         }
 
-        private bool OpcaoInvalida(string opcao)
+        private bool OpcaoInvalidaMenu(string opcao)
         {
             if (opcao != "1" && opcao != "2" && opcao != "S" && opcao != "s")
             {
@@ -136,6 +161,40 @@ namespace AgendaDeTarefas.Tela
                 return true;
         }
 
+
+        private void MenuCompromissos()
+        {
+            LimparTela();
+            string opcao;
+
+            Console.WriteLine("Digite 1 para o Cadastro de Compromissos");
+            Console.WriteLine("Digite 2 para Listar Compromissos");
+            Console.WriteLine("Digite 3 para Editar Compromissos");
+            Console.WriteLine("Digite 4 para Excluir Compromissos");
+
+            Console.WriteLine("Digite S para Sair");
+            Console.WriteLine();
+            Console.Write("Opção: ");
+            opcao = Console.ReadLine();
+
+            if (opcao == "1")
+                telaCompromisso.InserirCompromisso();
+
+            if (opcao == "2")
+                telaCompromisso.ListarCompromissos();
+
+            if (opcao == "3")
+                telaCompromisso.EditarCompromisso();
+
+            if (opcao == "4")
+                telaCompromisso.ExcluirCompromisso();
+
+            else if (opcao.Equals("s", StringComparison.OrdinalIgnoreCase))
+            LimparTela();
+            RetornaMenu();
+        }
+
         
+
     }
 }

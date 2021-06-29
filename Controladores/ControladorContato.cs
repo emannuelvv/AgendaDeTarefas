@@ -7,20 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AgendaDeTarefas.Controller
+namespace AgendaDeTarefas.Controladores
 {
     public class ControladorContato : Conexao
     {
         private readonly SqlContato sqlContato;
+        private Conexao conexao;
 
         public ControladorContato()
         {
             sqlContato = new SqlContato();
+            conexao = new Conexao();
         }
         public void InserirContato(Contato contato)
         {
             SqlCommand comandoInsercao = new SqlCommand();
-            comandoInsercao.Connection = CriarConexao();
+            comandoInsercao.Connection = conexao.CriarConexao();
             string recebeComandoInsercao = sqlContato.SqlInsercaoContato();
 
             comandoInsercao.CommandText = recebeComandoInsercao;
@@ -40,7 +42,7 @@ namespace AgendaDeTarefas.Controller
         {
 
             SqlCommand comandoBusca = new SqlCommand();
-            comandoBusca.Connection = CriarConexao();
+            comandoBusca.Connection = conexao.CriarConexao();
             string recebeConsultaContatos = sqlContato.SqlListarContato();
 
             comandoBusca.CommandText = recebeConsultaContatos;
@@ -73,7 +75,7 @@ namespace AgendaDeTarefas.Controller
         public void EditarContato(int id, Contato contato)
         {
             SqlCommand comandoEdicao = new SqlCommand();
-            comandoEdicao.Connection = CriarConexao();
+            comandoEdicao.Connection = conexao.CriarConexao();
             string recebeComandoEdicao = sqlContato.SqlEdicaoContato();
 
             comandoEdicao.CommandText = recebeComandoEdicao;
