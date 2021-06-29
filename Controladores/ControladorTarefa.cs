@@ -36,7 +36,7 @@ namespace AgendaDeTarefas.Controladores
             object id = comandoInsercao.ExecuteScalar();
             tarefa.Id = Convert.ToInt32(id);
 
-            FecharConexao();
+            
 
         }
 
@@ -53,7 +53,7 @@ namespace AgendaDeTarefas.Controladores
             List<Tarefa> tarefas = new List<Tarefa>();
             PopulandoListaTarefas(leitorConsultas, tarefas);
 
-            FecharConexao();
+           
             return tarefas;
         }
 
@@ -70,7 +70,7 @@ namespace AgendaDeTarefas.Controladores
             List<Tarefa> tarefas = new List<Tarefa>();
             PopulandoListaTarefas(leitorConsultas, tarefas);
 
-            FecharConexao();
+            
             return tarefas;
         }
 
@@ -87,7 +87,7 @@ namespace AgendaDeTarefas.Controladores
             List<Tarefa> tarefas = new List<Tarefa>();
             PopulandoListaTarefas(leitorConsultas, tarefas);
 
-            FecharConexao();
+            
             return tarefas;
         }
 
@@ -122,7 +122,7 @@ namespace AgendaDeTarefas.Controladores
             comandoEdicao.Parameters.AddWithValue("Prioridade", tarefa.Prioridade);
 
             comandoEdicao.ExecuteNonQuery();
-            FecharConexao();
+            
         }
 
         public void ExcluirTarefa(int id)
@@ -136,7 +136,7 @@ namespace AgendaDeTarefas.Controladores
             comandoExclusao.Parameters.AddWithValue("Id", id);
 
             comandoExclusao.ExecuteNonQuery();
-            FecharConexao();
+           
         }
     }
 }

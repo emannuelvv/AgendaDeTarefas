@@ -26,10 +26,7 @@ namespace AgendaDeTarefas.Controladores
             return conexaoBanco;
         }
 
-        public void FecharConexao()
-        {
-            ConexaoBanco.Close();
-        }
+        
 
     }
 }

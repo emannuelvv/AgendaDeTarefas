@@ -36,7 +36,7 @@ namespace AgendaDeTarefas.Tela
             string opcao;
             do
             {
-                Console.WriteLine("AGENDA 2.0");
+                Console.WriteLine("E-AGENDA ");
                 Console.WriteLine();
                 Console.WriteLine("Digite 1 para o Cadastro de Tarefas");
                 Console.WriteLine("Digite 2 para o Cadastro de Contatos");

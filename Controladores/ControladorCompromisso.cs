@@ -39,7 +39,7 @@ namespace AgendaDeTarefas.Controladores
             object id = comandoInsercao.ExecuteScalar();
             compromisso.Id = Convert.ToInt32(id);
 
-            conexao.FecharConexao();
+            
         }
 
         public void EditarCompromisso(int id, Compromisso compromisso)
@@ -60,7 +60,7 @@ namespace AgendaDeTarefas.Controladores
                 comandoEdicao.Parameters.AddWithValue("Id", id);
 
                 comandoEdicao.ExecuteNonQuery();
-                conexao.FecharConexao();
+                
         
        }
 
@@ -74,7 +74,7 @@ namespace AgendaDeTarefas.Controladores
                 comandoExclusao.Parameters.AddWithValue("Id", id);
 
                 comandoExclusao.ExecuteNonQuery();
-                conexao.FecharConexao();
+                
             }
             public List<Compromisso> ListarCompromissosFinalizados()
             {
@@ -89,7 +89,7 @@ namespace AgendaDeTarefas.Controladores
                 List<Compromisso> compromissos = new List<Compromisso>();
                 PopulandoListaCompromissos(leitorConsultas, compromissos);
 
-                conexao.FecharConexao();
+                
                 return compromissos;
             }
 
@@ -108,7 +108,7 @@ namespace AgendaDeTarefas.Controladores
                 List<Compromisso> compromissos = new List<Compromisso>();
                 PopulandoListaCompromissos(leitorConsultas, compromissos);
 
-                conexao.FecharConexao();
+                
                 return compromissos;
             }
 
@@ -125,7 +125,7 @@ namespace AgendaDeTarefas.Controladores
                 List<Compromisso> compromissos = new List<Compromisso>();
                 PopulandoListaCompromissos(leitorConsultas, compromissos);
 
-                conexao.FecharConexao();
+                
                 return compromissos;
             }
 
@@ -143,7 +143,7 @@ namespace AgendaDeTarefas.Controladores
                 List<Compromisso> compromissos = new List<Compromisso>();
                 PopulandoListaCompromissos(leitorConsultas, compromissos);
 
-                conexao.FecharConexao();
+                
                 return compromissos;
             }
 

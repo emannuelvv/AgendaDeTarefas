@@ -35,7 +35,7 @@ namespace AgendaDeTarefas.Controladores
             object id = comandoInsercao.ExecuteScalar();
             contato.Id = Convert.ToInt32(id);
 
-            FecharConexao();
+            
         }
 
         public List<Contato> ListarContatos()
@@ -51,7 +51,7 @@ namespace AgendaDeTarefas.Controladores
             List<Contato> contatos = new List<Contato>();
             PopulandoListaContatos(leitorConsultas, contatos);
 
-            FecharConexao();
+            
             return contatos;
         }
 
@@ -89,7 +89,7 @@ namespace AgendaDeTarefas.Controladores
             comandoEdicao.Parameters.AddWithValue("Id", id);
 
             comandoEdicao.ExecuteNonQuery();
-            FecharConexao();
+            
         }
 
 
@@ -103,7 +103,7 @@ namespace AgendaDeTarefas.Controladores
             comandoExclusao.Parameters.AddWithValue("Id", id);
 
             comandoExclusao.ExecuteNonQuery();
-            FecharConexao();
+            
         }
     }
 }
