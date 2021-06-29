@@ -1,0 +1,6 @@
+D:\AcademiaProgramador\DBAgenda\bin\Debug\DBAgenda.dacpac
+D:\AcademiaProgramador\DBAgenda\bin\Debug\DBAgenda.dll
+D:\AcademiaProgramador\DBAgenda\bin\Debug\DBAgenda.pdb
+D:\AcademiaProgramador\DBAgenda\obj\Debug\DBAgenda.sqlprojAssemblyReference.cache
+D:\AcademiaProgramador\DBAgenda\obj\Debug\DBAgenda.dll
+D:\AcademiaProgramador\DBAgenda\obj\Debug\DBAgenda.pdb
